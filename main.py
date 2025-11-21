@@ -34,7 +34,7 @@ class PasswordManager:
         analyze_btn = ttk.Button(entry_frame, text="Analyze", command=self.analyze_password)
         analyze_btn.grid(row=0, column=2, padx=(10, 0))
 
-        # Show/Hide password checkbox
+        
         self.show_password = tk.BooleanVar()
         show_cb = ttk.Checkbutton(entry_frame, text="Show", variable=self.show_password,
                                   command=self.toggle_password_visibility)
@@ -102,7 +102,7 @@ class PasswordManager:
 
         strength, score, feedback = self.check_password_strength(password)
 
-        # Update strength label with color
+    
         self.strength_label.config(text=f"Strength: {strength} (Score: {score}/100)")
         if strength == "Very Weak":
             self.strength_label.config(foreground="red")
@@ -112,10 +112,10 @@ class PasswordManager:
             self.strength_label.config(foreground="blue")
         elif strength == "Strong":
             self.strength_label.config(foreground="green")
-        else:  # Very Strong
+        else:  
             self.strength_label.config(foreground="dark green")
 
-        # Display detailed analysis
+        
         self.results_text.delete(1.0, tk.END)
         self.results_text.insert(tk.END, f"Password Analysis:\n")
         self.results_text.insert(tk.END, f"• Length: {len(password)} characters\n")
@@ -235,4 +235,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
